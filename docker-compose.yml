@@ -2,7 +2,7 @@ version: "2.1"
 services:
 
   zookeeper:
-    image: wurstmeister/zookeeper
+    image: wurstmeister/zookeeper:latest
     container_name: zookeeper
     expose:
       - "2181"
@@ -13,7 +13,7 @@ services:
         ipv4_address: 172.25.0.11
 
   kafka1:
-    image: wurstmeister/kafka
+    image: wurstmeister/kafka:2.12-2.2.0
     container_name: kafka1
     command: [start-kafka.sh]
     expose:
@@ -34,7 +34,7 @@ services:
       - "zookeeper"
 
   kafka2:
-    image: wurstmeister/kafka
+    image: wurstmeister/kafka:2.12-2.2.0
     container_name: kafka2
     command: [start-kafka.sh]
     expose:
@@ -93,7 +93,7 @@ services:
     expose:
       - "3000"
     environment:
-      - GF_SECURITY_ADMIN_PASSWORD=flink
+      - GF_SECURITY_ADMIN_PASSWORD=password
     volumes:
       - ./grafana/provisioning/:/etc/grafana/provisioning/
     depends_on:
