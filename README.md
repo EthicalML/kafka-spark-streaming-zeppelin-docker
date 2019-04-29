@@ -1,3 +1,8 @@
+![GitHub](https://img.shields.io/badge/Release-PROD-green.svg)
+![GitHub](https://img.shields.io/badge/Version-0.0.1-lightgrey.svg)
+![GitHub](https://img.shields.io/badge/License-MIT-lightgrey.svg)
+
+
 # Kafka Spark Streaming Full Stack
 
 This repository contains a docker-compose stack with Kafka and Spark Streaming, together with monitoring with Kafka Manager and a Grafana Dashboard. The networking is set up so Kafka brokers can be accessed from the host.
