@@ -120,6 +120,7 @@ services:
 
 networks:
   kafkanet:
+    name: kafkanet
     driver: bridge
     ipam:
       driver: default
