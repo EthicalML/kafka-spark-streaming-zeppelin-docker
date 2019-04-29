@@ -1,0 +1,14 @@
+global:
+  scrape_interval: 1s
+  evaluation_interval: 1s
+scrape_configs:
+- job_name: 'flink'
+  static_configs:
+    - targets: 
+      - 172.25.0.20:9249
+      - 172.25.0.21:9249
+- job_name: 'kafka'
+  static_configs:
+    - targets:
+      - 172.25.0.12:8080
+      - 172.25.0.13:8080

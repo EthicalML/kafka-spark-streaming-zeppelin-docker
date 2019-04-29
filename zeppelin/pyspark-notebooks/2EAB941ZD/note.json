@@ -1,0 +1,186 @@
+{
+  "paragraphs": [
+    {
+      "text": "%sh\npip install kafka-python",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-29 11:58:47.499",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Collecting kafka-python\n  Downloading https://files.pythonhosted.org/packages/82/39/aebe3ad518513bbb2260dd84ac21e5c30af860cc4c95b32acbd64b9d9d0d/kafka_python-1.4.6-py2.py3-none-any.whl (259kB)\nInstalling collected packages: kafka-python\nSuccessfully installed kafka-python-1.4.6\nYou are using pip version 8.1.2, however version 19.1 is available.\nYou should consider upgrading via the \u0027pip install --upgrade pip\u0027 command.\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556538860554_-1121550077",
+      "id": "20190429-115420_1698791579",
+      "dateCreated": "2019-04-29 11:54:20.554",
+      "dateStarted": "2019-04-29 11:58:47.592",
+      "dateFinished": "2019-04-29 11:58:50.046",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%producer.pyspark\n\ndf \u003d (spark.read.format(\"com.databricks.spark.csv\")\n        .option(\"header\", \"true\")\n        .option(\"inferSchema\",\"true\")\n        .load(\"/datadrive/census_1000.csv\"))\n        \ndf_list \u003d df.collect()\ndf.show()",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-29 11:59:15.381",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "editorHide": false,
+        "tableHide": false,
+        "title": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+---+---+-----------------+-------------+-------------+--------------------+------------------+--------------+-------------------+-------+------------+------------+--------------+------+\n|_c0|age|        workclass|    education|education-num|      marital-status|        occupation|  relationship|          ethnicity| gender|capital-gain|capital-loss|hours-per-week|  loan|\n+---+---+-----------------+-------------+-------------+--------------------+------------------+--------------+-------------------+-------+------------+------------+--------------+------+\n|  0| 39|        State-gov|    Bachelors|           13|       Never-married|      Adm-clerical| Not-in-family|              White|   Male|        2174|           0|            40| \u003c\u003d50K|\n|  1| 50| Self-emp-not-inc|    Bachelors|           13|  Married-civ-spouse|   Exec-managerial|       Husband|              White|   Male|           0|           0|            13| \u003c\u003d50K|\n|  2| 38|          Private|      HS-grad|            9|            Divorced| Handlers-cleaners| Not-in-family|              White|   Male|           0|           0|            40| \u003c\u003d50K|\n|  3| 53|          Private|         11th|            7|  Married-civ-spouse| Handlers-cleaners|       Husband|              Black|   Male|           0|           0|            40| \u003c\u003d50K|\n|  4| 28|          Private|    Bachelors|           13|  Married-civ-spouse|    Prof-specialty|          Wife|              Black| Female|           0|           0|            40| \u003c\u003d50K|\n|  5| 37|          Private|      Masters|           14|  Married-civ-spouse|   Exec-managerial|          Wife|              White| Female|           0|           0|            40| \u003c\u003d50K|\n|  6| 49|          Private|          9th|            5| Married-spouse-a...|     Other-service| Not-in-family|              Black| Female|           0|           0|            16| \u003c\u003d50K|\n|  7| 52| Self-emp-not-inc|      HS-grad|            9|  Married-civ-spouse|   Exec-managerial|       Husband|              White|   Male|           0|           0|            45|  \u003e50K|\n|  8| 31|          Private|      Masters|           14|       Never-married|    Prof-specialty| Not-in-family|              White| Female|       14084|           0|            50|  \u003e50K|\n|  9| 42|          Private|    Bachelors|           13|  Married-civ-spouse|   Exec-managerial|       Husband|              White|   Male|        5178|           0|            40|  \u003e50K|\n| 10| 37|          Private| Some-college|           10|  Married-civ-spouse|   Exec-managerial|       Husband|              Black|   Male|           0|           0|            80|  \u003e50K|\n| 11| 30|        State-gov|    Bachelors|           13|  Married-civ-spouse|    Prof-specialty|       Husband| Asian-Pac-Islander|   Male|           0|           0|            40|  \u003e50K|\n| 12| 23|          Private|    Bachelors|           13|       Never-married|      Adm-clerical|     Own-child|              White| Female|           0|           0|            30| \u003c\u003d50K|\n| 13| 32|          Private|   Assoc-acdm|           12|       Never-married|             Sales| Not-in-family|              Black|   Male|           0|           0|            50| \u003c\u003d50K|\n| 14| 40|          Private|    Assoc-voc|           11|  Married-civ-spouse|      Craft-repair|       Husband| Asian-Pac-Islander|   Male|           0|           0|            40|  \u003e50K|\n| 15| 34|          Private|      7th-8th|            4|  Married-civ-spouse|  Transport-moving|       Husband| Amer-Indian-Eskimo|   Male|           0|           0|            45| \u003c\u003d50K|\n| 16| 25| Self-emp-not-inc|      HS-grad|            9|       Never-married|   Farming-fishing|     Own-child|              White|   Male|           0|           0|            35| \u003c\u003d50K|\n| 17| 32|          Private|      HS-grad|            9|       Never-married| Machine-op-inspct|     Unmarried|              White|   Male|           0|           0|            40| \u003c\u003d50K|\n| 18| 38|          Private|         11th|            7|  Married-civ-spouse|             Sales|       Husband|              White|   Male|           0|           0|            50| \u003c\u003d50K|\n| 19| 43| Self-emp-not-inc|      Masters|           14|            Divorced|   Exec-managerial|     Unmarried|              White| Female|           0|           0|            45|  \u003e50K|\n+---+---+-----------------+-------------+-------------+--------------------+------------------+--------------+-------------------+-------+------------+------------+--------------+------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.25.0.19:4040/jobs/job?id\u003d0",
+            "http://172.25.0.19:4040/jobs/job?id\u003d1",
+            "http://172.25.0.19:4040/jobs/job?id\u003d2",
+            "http://172.25.0.19:4040/jobs/job?id\u003d3"
+          ],
+          "interpreterSettingId": "producer"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1556120282490_1275576273",
+      "id": "20190424-153802_2004623441",
+      "dateCreated": "2019-04-24 15:38:02.490",
+      "dateStarted": "2019-04-29 11:59:15.419",
+      "dateFinished": "2019-04-29 11:59:31.420",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%producer.pyspark\nimport time\nimport json\nimport random\nimport logging\n\nfrom kafka import KafkaProducer\nfrom kafka.errors import KafkaError\n\nKAFKA_BROKER \u003d \"172.25.0.12:9092\"\nKAFKA_TOPIC \u003d \"default_topic\"\n\nproducer \u003d KafkaProducer(bootstrap_servers\u003d[KAFKA_BROKER])\nindex \u003d 0\n\nwhile True:\n    \n    row_dict \u003d df_list[index].asDict()\n    \n    future \u003d producer.send(\n        topic\u003dKAFKA_TOPIC, \n        key\u003dstr(row_dict[\"_c0\"]).encode(\"utf-8\"),\n        value\u003djson.dumps(row_dict).encode(\"utf-8\"))\n    \n    try:\n        record_metadata \u003d future.get(timeout\u003d10)\n    except KafkaError:\n        # Decide what to do if produce request failed...\n        logging.exception(\"Error\")\n        pass\n    \n    producer.flush()\n    \n    index +\u003d 1\n    time.sleep(random.uniform(0.1,3.0))",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-29 12:00:03.776",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1556124778874_694089528",
+      "id": "20190424-165258_808657351",
+      "dateCreated": "2019-04-24 16:52:58.874",
+      "dateStarted": "2019-04-29 12:00:03.815",
+      "dateFinished": "2019-04-29 11:51:15.220",
+      "status": "ABORT",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%consumer.pyspark\nimport json\nfrom pyspark.streaming.kafka import KafkaUtils\nfrom pyspark.streaming import StreamingContext\n\ntry:\n    # Reset streaming context if exists\n    ssc.stop(stopSparkContext\u003dFalse, stopGraceFully\u003dFalse)\nexcept:\n    pass\n\nssc \u003d StreamingContext(sc, batchDuration\u003d2)\n\nREDDIT_TOPIC \u003d \"default_topic\"\nKAFKA_BROKERS \u003d \"172.25.0.12:9092,172.25.0.13:9092\"\n\nstream \u003d KafkaUtils.createDirectStream(\n                            ssc, \n                            [REDDIT_TOPIC], \n                            {\"metadata.broker.list\": KAFKA_BROKERS})\n\nstream \u003d stream.map(lambda x: json.loads(x[1]))\nstream \u003d stream.map(lambda x: (x[\"_c0\"], x[\"loan\"]))\n\nstream.pprint()\n\nssc.start()\nssc.awaitTermination()",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-29 12:00:29.244",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "-------------------------------------------\nTime: 2019-04-29 12:00:46\n-------------------------------------------\n(24, u\u0027 \u003c\u003d50K\u0027)\n(25, u\u0027 \u003e50K\u0027)\n\n-------------------------------------------\nTime: 2019-04-29 12:00:48\n-------------------------------------------\n(26, u\u0027 \u003c\u003d50K\u0027)\n\n-------------------------------------------\nTime: 2019-04-29 12:00:50\n-------------------------------------------\n(27, u\u0027 \u003e50K\u0027)\n\n-------------------------------------------\nTime: 2019-04-29 12:00:52\n-------------------------------------------\n(28, u\u0027 \u003c\u003d50K\u0027)\n(29, u\u0027 \u003c\u003d50K\u0027)\n\n-------------------------------------------\nTime: 2019-04-29 12:00:54\n-------------------------------------------\n(30, u\u0027 \u003c\u003d50K\u0027)\n\n-------------------------------------------\nTime: 2019-04-29 12:00:56\n-------------------------------------------\n(31, u\u0027 \u003c\u003d50K\u0027)\n(32, u\u0027 \u003c\u003d50K\u0027)\n\n-------------------------------------------\nTime: 2019-04-29 12:00:58\n-------------------------------------------\n\n-------------------------------------------\nTime: 2019-04-29 12:01:00\n-------------------------------------------\n(33, u\u0027 \u003c\u003d50K\u0027)\n(34, u\u0027 \u003c\u003d50K\u0027)\n\n-------------------------------------------\nTime: 2019-04-29 12:01:02\n-------------------------------------------\n(35, u\u0027 \u003c\u003d50K\u0027)\n\n\u001b[0;31m\u001b[0m\n\u001b[0;31mKeyboardInterrupt\u001b[0mTraceback (most recent call last)\n\u001b[0;32m\u003cipython-input-4-63c862b08c08\u003e\u001b[0m in \u001b[0;36m\u003cmodule\u003e\u001b[0;34m()\u001b[0m\n\u001b[1;32m     25\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     26\u001b[0m \u001b[0mssc\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mstart\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---\u003e 27\u001b[0;31m \u001b[0mssc\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mawaitTermination\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/pyspark.zip/pyspark/streaming/context.py\u001b[0m in \u001b[0;36mawaitTermination\u001b[0;34m(self, timeout)\u001b[0m\n\u001b[1;32m    204\u001b[0m         \"\"\"\n\u001b[1;32m    205\u001b[0m         \u001b[0;32mif\u001b[0m \u001b[0mtimeout\u001b[0m \u001b[0;32mis\u001b[0m \u001b[0mNone\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--\u003e 206\u001b[0;31m             \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_jssc\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mawaitTermination\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    207\u001b[0m         \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    208\u001b[0m             \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_jssc\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mawaitTerminationOrTimeout\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mtimeout\u001b[0m \u001b[0;34m*\u001b[0m \u001b[0;36m1000\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/py4j-0.10.4-src.zip/py4j/java_gateway.py\u001b[0m in \u001b[0;36m__call__\u001b[0;34m(self, *args)\u001b[0m\n\u001b[1;32m   1129\u001b[0m             \u001b[0mproto\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mEND_COMMAND_PART\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1130\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-\u003e 1131\u001b[0;31m         \u001b[0manswer\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mgateway_client\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msend_command\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mcommand\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1132\u001b[0m         return_value \u003d get_return_value(\n\u001b[1;32m   1133\u001b[0m             answer, self.gateway_client, self.target_id, self.name)\n\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/py4j-0.10.4-src.zip/py4j/java_gateway.py\u001b[0m in \u001b[0;36msend_command\u001b[0;34m(self, command, retry, binary)\u001b[0m\n\u001b[1;32m    881\u001b[0m         \u001b[0mconnection\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_get_connection\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    882\u001b[0m         \u001b[0;32mtry\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--\u003e 883\u001b[0;31m             \u001b[0mresponse\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mconnection\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msend_command\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mcommand\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    884\u001b[0m             \u001b[0;32mif\u001b[0m \u001b[0mbinary\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    885\u001b[0m                 \u001b[0;32mreturn\u001b[0m \u001b[0mresponse\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_create_connection_guard\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mconnection\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/zeppelin/interpreter/spark/pyspark/py4j-0.10.4-src.zip/py4j/java_gateway.py\u001b[0m in \u001b[0;36msend_command\u001b[0;34m(self, command)\u001b[0m\n\u001b[1;32m   1026\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1027\u001b[0m         \u001b[0;32mtry\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-\u003e 1028\u001b[0;31m             \u001b[0manswer\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0msmart_decode\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mstream\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mreadline\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m-\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1029\u001b[0m             \u001b[0mlogger\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mdebug\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Answer received: {0}\"\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mformat\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0manswer\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1030\u001b[0m             \u001b[0;32mif\u001b[0m \u001b[0manswer\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mstartswith\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mproto\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mRETURN_MESSAGE\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;32m/opt/conda/lib/python2.7/socket.pyc\u001b[0m in \u001b[0;36mreadline\u001b[0;34m(self, size)\u001b[0m\n\u001b[1;32m    449\u001b[0m             \u001b[0;32mwhile\u001b[0m \u001b[0mTrue\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    450\u001b[0m                 \u001b[0;32mtry\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--\u003e 451\u001b[0;31m                     \u001b[0mdata\u001b[0m \u001b[0;34m\u003d\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_sock\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mrecv\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_rbufsize\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    452\u001b[0m                 \u001b[0;32mexcept\u001b[0m \u001b[0merror\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0me\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    453\u001b[0m                     \u001b[0;32mif\u001b[0m \u001b[0me\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0margs\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m\u003d\u003d\u001b[0m \u001b[0mEINTR\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\n\u001b[0;31mKeyboardInterrupt\u001b[0m: "
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1556022009133_-1199138898",
+      "id": "20190423-122009_873241770",
+      "dateCreated": "2019-04-23 12:20:09.133",
+      "dateStarted": "2019-04-29 12:00:29.293",
+      "dateFinished": "2019-04-29 12:01:03.822",
+      "status": "ABORT",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Example Kafka Spark Streaming",
+  "id": "2EAB941ZD",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "producer:shared_process": [],
+    "sh:shared_process": [],
+    "consumer:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {}
+}

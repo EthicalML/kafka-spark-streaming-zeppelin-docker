@@ -1,0 +1,134 @@
+version: "2.1"
+services:
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: zookeeper
+    expose:
+      - "2181"
+    volumes:
+      - kafka_zookeeper:/opt/zookeeper-3.4.13/data
+    networks:
+      kafkanet:
+        ipv4_address: 172.25.0.11
+
+  kafka1:
+    image: wurstmeister/kafka
+    container_name: kafka1
+    command: [start-kafka.sh]
+    expose:
+      - "8080"
+      - "9092"
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: 172.25.0.12
+      KAFKA_ZOOKEEPER_CONNECT: 172.25.0.11:2181
+      KAFKA_ADVERTISED_PORT: 9092
+      KAFKA_OPTS: -javaagent:/prometheus/jmx_prometheus_javaagent-0.3.1.jar=8080:/prometheus/kafka-0-8-2.yml 
+    volumes:
+      - ./kafka/prometheus:/prometheus
+      - kafka_kafka1:/opt/kafka_2.12-2.2.0/logs
+    networks:
+      kafkanet:
+        ipv4_address: 172.25.0.12
+    depends_on:
+      - "zookeeper"
+
+  kafka2:
+    image: wurstmeister/kafka
+    container_name: kafka2
+    command: [start-kafka.sh]
+    expose:
+      - "8080"
+      - "9092"
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: 172.25.0.13
+      KAFKA_ZOOKEEPER_CONNECT: 172.25.0.11:2181
+      KAFKA_ADVERTISED_PORT: 9092
+      KAFKA_OPTS: -javaagent:/prometheus/jmx_prometheus_javaagent-0.3.1.jar=8080:/prometheus/kafka-0-8-2.yml 
+    volumes:
+      - ./kafka/prometheus:/prometheus
+      - kafka_kafka2:/opt/kafka_2.12-2.2.0/logs
+    depends_on:
+      - "zookeeper"
+    networks:
+      kafkanet:
+        ipv4_address: 172.25.0.13
+
+  kafka_manager:
+    image: hlebalbau/kafka-manager:1.3.3.18
+    container_name: kafka_manager
+    expose:
+      - "9000"
+    environment:
+      ZK_HOSTS: "172.25.0.11:2181"
+      APPLICATION_SECRET: "random-secret"
+    command: -Dpidfile.path=/dev/null
+    depends_on:
+      - "zookeeper"
+      - "kafka1"
+      - "kafka2"
+    networks:
+      kafkanet:
+        ipv4_address: 172.25.0.14
+
+  prometheus:
+    image: prom/prometheus:v2.8.1
+    container_name: prometheus
+    expose:
+      - "9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus/flink.rules.yml:/etc/prometheus/flink.rules.yml
+    depends_on:
+      - "zookeeper"
+      - "kafka1"
+      - "kafka2"
+    networks:
+      kafkanet:
+        ipv4_address: 172.25.0.15
+
+  grafana:
+    image: grafana/grafana:6.1.1
+    container_name: grafana
+    expose:
+      - "3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=flink
+    volumes:
+      - ./grafana/provisioning/:/etc/grafana/provisioning/
+    depends_on:
+      - "prometheus"
+    networks:
+      kafkanet:
+        ipv4_address: 172.25.0.16
+
+  zeppelin:
+    image: apache/zeppelin:0.8.1
+    hostname: zeppelin
+    container_name: zeppelin
+    expose:
+      - "8080"
+      - "8443"
+      - "4040"
+    volumes:
+      - ./zeppelin/datadrive:/datadrive
+      - ./zeppelin/pyspark-notebooks:/zeppelin/notebook
+      - ./zeppelin/zeppelin-interpreters/interpreter.json:/zeppelin/conf/interpreter.json
+    networks:
+      kafkanet:
+        ipv4_address: 172.25.0.19
+
+networks:
+  kafkanet:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.25.0.0/16
+          gateway: 172.25.0.1
+
+volumes:
+  kafka_zookeeper:
+  kafka_kafka1:
+  kafka_kafka2:
+
