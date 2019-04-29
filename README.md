@@ -127,7 +127,7 @@ If your cluster was named "Kafka", then you can go to http://172.25.0.14:9000/cl
 
 #### Visualise metrics in Grafana
 
-Finally, you can access the default kafka dashboard in Grafana (username is "admin" and password is "password") by going to 
+Finally, you can access the default kafka dashboard in Grafana (username is "admin" and password is "password") by going to http://172.25.0.16:3000/d/xyAGlzgWz/kafka?orgId=1
 
 ![](images/grafanakafka.jpg)
 
