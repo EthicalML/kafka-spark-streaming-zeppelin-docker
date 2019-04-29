@@ -2,8 +2,7 @@
 ![GitHub](https://img.shields.io/badge/Version-0.0.1-lightgrey.svg)
 ![GitHub](https://img.shields.io/badge/License-MIT-blue.svg)
 
-
-# Kafka Spark Streaming Full Stack
+# One Click Deploy: Kafka Spark Streaming with Zeppelin UI
 
 This repository contains a docker-compose stack with Kafka and Spark Streaming, together with monitoring with Kafka Manager and a Grafana Dashboard. The networking is set up so Kafka brokers can be accessed from the host.
 
