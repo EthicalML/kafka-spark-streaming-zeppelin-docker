@@ -1,6 +1,6 @@
 ![GitHub](https://img.shields.io/badge/Release-PROD-green.svg)
 ![GitHub](https://img.shields.io/badge/Version-0.0.1-lightgrey.svg)
-![GitHub](https://img.shields.io/badge/License-MIT-lightgrey.svg)
+![GitHub](https://img.shields.io/badge/License-MIT-blue.svg)
 
 
 # Kafka Spark Streaming Full Stack
