@@ -1,6 +1,6 @@
 # Kafka Spark Streaming Full Stack
 
-This repository contains a docker-compose stack with Kafka and Spark Streaming, together with monitoring with Kafka Manager and a Grafana Dashboard.
+This repository contains a docker-compose stack with Kafka and Spark Streaming, together with monitoring with Kafka Manager and a Grafana Dashboard. The networking is set up so Kafka brokers can be accessed from the host.
 
 It also comes with a producer-consumer example using a small subset of the [US Census adult income prediction dataset](https://www.kaggle.com/johnolafenwa/us-census-data).
 
@@ -38,13 +38,6 @@ It also comes with a producer-consumer example using a small subset of the [US C
 | prometheus | prom/prometheus | v2.8.1 | 172.25.0.15:9000 |
 | grafana | grafana/grafana | 6.1.1 | 172.25.0.16:3000 |
 | zeppelin | apache/zeppelin | 0.8.1 | 172.25.0.19:8080 |
-
-
-# Overview 
-
-This repository contains a docker-file together with the configuration files to spin off all the services mentioned below. 
-
-This docker-compose uses a network bridge to explicitly allocate IP addressses to all the services. This allows you to access all the services directly through their respective static IPs, which is handy if you want to use the kafka scripts (e.g. kafka-topics.sh) from your host server.
 
 # Quickstart
 
