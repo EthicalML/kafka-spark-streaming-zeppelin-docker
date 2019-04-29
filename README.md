@@ -1,32 +1,33 @@
 # Kafka Spark Streaming Full Stack
 
+This repository contains a docker-compose stack with Kafka and Spark Streaming, together with monitoring with Kafka Manager and a Grafana Dashboard.
+
+It also comes with a producer-consumer example using a small subset of the [US Census adult income prediction dataset](https://www.kaggle.com/johnolafenwa/us-census-data).
+
+## High level features:
+
 <table>
 <tr>
 <td style="width: 50%">
-<img src="images/zeppelin-2.jpg" alt="">
+<h2>Monitoring with grafana</h2>
+<img src="images/grafanakafka.jpg" alt="">
 </td>
 <td>
+<h2>Zeppelin UI</h2>
 <img src="images/zeppelin-2.jpg" alt="">
 </td>
 </tr>
 <td style="width: 50%">
+<h2>Kafka access from host</h2>
 <img src="images/console.jpg" alt="">
 </td>
 <td style="width: 50%">
+<h2>Multiple spark interpreters</h2>
 <img src="images/sparkui.jpg" alt="">
 </td>
 </table>
 
-This repository contains a docker-compose stack with Kafka and Spark Streaming, together with monitoring with Kafka Manager and a Grafana Dashboard.
-
-| | |
-|-|-|
-| Kafka | Two kafka brokers managed by one zookeeper |
-| Spark Streaming | Zeppelin client with multiple spark interpreters |
-| Monitoring | Kafka manager client to visualise topics |
-| Metrics | Grafana dashboard with prometheus using JMX metrics |
-
-## Details
+## Detail Summary
 
 | Container | Image | Tag | Accessible | 
 |-|-|-|-|
