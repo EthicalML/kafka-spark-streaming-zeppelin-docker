@@ -39,7 +39,7 @@ It also comes with a producer-consumer example using a small subset of the [US C
 | kafka1 | wurstmeister/kafka | 2.12-2.2.0 | 172.25.0.12:9092 (port 8080 for JMX metrics) |
 | kafka1 | wurstmeister/kafka | 2.12-2.2.0 | 172.25.0.13:9092 (port 8080 for JMX metrics) |
 | kafka_manager | hlebalbau/kafka_manager | 1.3.3.18 | 172.25.0.14:9000 |
-| prometheus | prom/prometheus | v2.8.1 | 172.25.0.15:9000 |
+| prometheus | prom/prometheus | v2.8.1 | 172.25.0.15:9090 |
 | grafana | grafana/grafana | 6.1.1 | 172.25.0.16:3000 |
 | zeppelin | apache/zeppelin | 0.8.1 | 172.25.0.19:8080 |
 
